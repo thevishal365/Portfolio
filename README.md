@@ -1,7 +1,5 @@
 # Portfolio
 
-> A minimal personal portfolio for Vishal Kumar, focused on Medical Laboratory Technology, AI, digital tools, and emerging technologies.
-
 A clean, responsive single-page portfolio that presents a personal profile, professional background, technology interests, social links, and real visitor statistics in a simple editorial-style interface.
 
 ## Features
