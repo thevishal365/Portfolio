@@ -88,22 +88,19 @@ Portfolio/
 
 ## Configuration
 
-The portfolio uses environment variables for GoatCounter configuration.
+No environment configuration is required: pageview tracking uses the
+GoatCounter tracker script with a hardcoded site URL, and the footer
+visitor count is read from GoatCounter's public counter endpoint
+(available once "Allow adding visitor counts on your website" is
+enabled in the GoatCounter site settings).
 
-Create a local environment file:
-
-```text
-.env.local
-```
-
-Add the required values:
+Optionally, a `.env.local` file can override the site code:
 
 ```env
 VITE_GOATCOUNTER_SITE=
-VITE_GOATCOUNTER_API_TOKEN=
 ```
 
-Never commit `.env.local` or expose the API token in source control.
+When unset, the app falls back to its built-in default site code.
 
 ## Development
 
@@ -142,7 +139,7 @@ npm run build
 
 The portfolio uses GoatCounter to collect visitor statistics and display the live total in the footer.
 
-Visitor tracking and visitor-count display are handled separately so the interface remains lightweight while statistics are retrieved from GoatCounter.
+Pageview tracking is handled by the official count.js tracker script, while the visitor count in the footer is read from GoatCounter's public counter endpoint (`https://<site-code>.goatcounter.com/counter/TOTAL.json`). The counter requires no API token and fails gracefully — if GoatCounter is unavailable, the count is simply hidden rather than showing fake data. Note that GoatCounter caches counter responses for up to four hours.
 
 ## Design
 

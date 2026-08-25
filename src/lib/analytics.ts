@@ -5,8 +5,9 @@
  * counting visits is a public operation). The script is injected here
  * rather than in index.html so it stays bundled with the SPA lifecycle.
  *
- * Note: the FOOTER DISPLAY of the visitor total additionally requires a
- * read-only API token in .env.local — see src/hooks/useVisitorCount.ts.
+ * Note: the FOOTER DISPLAY of the visitor total uses GoatCounter's
+ * public counter endpoint (no API token required) — see
+ * src/hooks/useVisitorCount.ts.
  */
 const GOATCOUNTER_SITE = 'https://vishalkumar.goatcounter.com/count';
 
