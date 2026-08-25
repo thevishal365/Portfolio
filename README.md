@@ -1,32 +1,181 @@
-# React + TypeScript + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> A minimal personal portfolio for Vishal Kumar, focused on Medical Laboratory Technology, AI, digital tools, and emerging technologies.
 
-Currently, two official plugins are available:
+A clean, responsive single-page portfolio that presents a personal profile, professional background, technology interests, social links, and real visitor statistics in a simple editorial-style interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Minimal single-page portfolio
+- Responsive design for desktop, tablet, and mobile
+- Profile card with social links
+- About Me section with focused profile information
+- Highlighted areas of interest and expertise
+- Online status indicator with subtle pulse animation
+- Real visitor tracking with GoatCounter
+- Live visitor count displayed in the footer
+- Smooth scrolling and lightweight interactions
+- Accessible, keyboard-friendly interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How It Works
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+Portfolio Content
+        ↓
+React Components
+        ↓
+Responsive UI
+        ↓
+GoatCounter Tracking
+        ↓
+Live Visitor Statistics
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Tech Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### Analytics
+
+- GoatCounter
+
+## Project Structure
+
+```text
+Portfolio/
+├── public/
+│   ├── favicon.svg
+│   ├── icons.svg
+│   └── profile.png
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── AboutBio.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── ProfileAvatar.tsx
+│   │   ├── ProfileCard.tsx
+│   │   ├── SocialIcon.tsx
+│   │   └── SocialIconGroup.tsx
+│   ├── data/
+│   │   └── profileData.ts
+│   ├── hooks/
+│   │   └── useVisitorCount.ts
+│   ├── lib/
+│   │   └── analytics.ts
+│   ├── types/
+│   │   └── profile.ts
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+│
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── README.md
+```
+
+## Configuration
+
+The portfolio uses environment variables for GoatCounter configuration.
+
+Create a local environment file:
+
+```text
+.env.local
+```
+
+Add the required values:
+
+```env
+VITE_GOATCOUNTER_SITE=
+VITE_GOATCOUNTER_API_TOKEN=
+```
+
+Never commit `.env.local` or expose the API token in source control.
+
+## Development
+
+### Requirements
+
+- Node.js
+- npm
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start the Development Server
+
+```bash
+npm run dev
+```
+
+The local development server is provided by Vite.
+
+### Run Lint
+
+```bash
+npm run lint
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+## Visitor Tracking
+
+The portfolio uses GoatCounter to collect visitor statistics and display the live total in the footer.
+
+Visitor tracking and visitor-count display are handled separately so the interface remains lightweight while statistics are retrieved from GoatCounter.
+
+## Design
+
+The portfolio follows a minimal editorial approach:
+
+- Warm neutral background
+- Strong monochrome typography
+- Generous spacing
+- Subtle borders and shadows
+- Rounded profile surfaces
+- Small, restrained UI interactions
+- Responsive layouts across screen sizes
+
+## Live Application
+
+Add the deployed website URL here:
+
+```text
+https://thevishal365.netlify.app/
+```
+
+## Project Status
+
+This portfolio is actively maintained and updated as the design, content, and technology interests evolve.
+
+## Author
+
+**Vishal Kumar**
+
+- GitHub: [@thevishal365](https://github.com/thevishal365)
+
+## License
+
+License information will be added later.
