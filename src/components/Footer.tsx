@@ -7,27 +7,27 @@ export const Footer: React.FC = () => {
   const visitorCount = useVisitorCount();
 
   return (
-    <footer className="w-full border-t border-[rgba(25,24,23,0.08)]">
+    <footer className="w-full border-t border-white/[0.08] bg-[#080c14]/60 backdrop-blur-md">
       {/* Same container system as the header: max-w-6xl, shared padding */}
-      <div className="mx-auto flex h-[72px] w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <p className="select-none text-[12.5px] font-normal tracking-[0.06em] text-[#8f8b83]">
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <p className="select-none text-[13px] font-medium tracking-wide text-slate-400">
           © Vishal Kumar
         </p>
 
         {/* Minimal visitor metadata — renders whenever a real numeric count
             exists (including 0); hidden only while unconfigured/unavailable */}
         {typeof visitorCount === 'string' && (
-          <p
+          <div
             aria-label={`${visitorCount} visitors`}
-            className="inline-flex shrink-0 select-none items-center gap-1.5 text-[12.5px] font-normal tabular-nums tracking-[0.06em] text-[#8f8b83]"
+            className="inline-flex shrink-0 select-none items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-950/20 px-3 py-1 text-[12px] font-mono tabular-nums tracking-wide text-emerald-300/90 shadow-[0_0_10px_rgba(16,185,129,0.08)]"
           >
             <svg
               aria-hidden="true"
-              className="h-[13px] w-[13px]"
+              className="h-3.5 w-3.5 text-emerald-400"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.75"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -35,9 +35,10 @@ export const Footer: React.FC = () => {
               <circle cx="12" cy="12" r="3" />
             </svg>
             <span>{visitorCount}</span>
-          </p>
+          </div>
         )}
       </div>
     </footer>
   );
 };
+

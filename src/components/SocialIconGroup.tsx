@@ -10,8 +10,8 @@ interface SocialIconGroupProps {
 
 export const SocialIconGroup: React.FC<SocialIconGroupProps> = ({
   links,
-  iconSize = 38,
-  gapClassName = 'gap-2.5'
+  iconSize = 42,
+  gapClassName = 'gap-3'
 }) => {
   return (
     <div className={`flex items-center justify-center ${gapClassName}`}>

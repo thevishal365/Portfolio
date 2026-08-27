@@ -6,13 +6,13 @@ interface SocialIconProps {
   size?: number;
 }
 
-export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 38 }) => {
+export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 42 }) => {
   const renderGlyph = () => {
     switch (link.platform) {
       case 'instagram':
         return (
           <svg
-            className="h-[17px] w-[17px]"
+            className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -28,7 +28,7 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 38 }) => {
 
       case 'x':
         return (
-          <svg className="h-[16px] w-[16px]" viewBox="0 0 24 24" fill="currentColor">
+          <svg className="h-[16px] w-[16px] transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
         );
@@ -36,7 +36,7 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 38 }) => {
       case 'email':
         return (
           <svg
-            className="h-[17px] w-[17px]"
+            className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -51,7 +51,7 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 38 }) => {
 
       case 'github':
         return (
-          <svg className="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="currentColor">
+          <svg className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -65,6 +65,21 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 38 }) => {
     }
   };
 
+  const getPlatformHoverClasses = () => {
+    switch (link.platform) {
+      case 'instagram':
+        return 'hover:border-pink-500/40 hover:text-pink-300 hover:shadow-[0_0_18px_rgba(236,72,153,0.3)]';
+      case 'x':
+        return 'hover:border-slate-400/50 hover:text-white hover:shadow-[0_0_18px_rgba(255,255,255,0.2)]';
+      case 'email':
+        return 'hover:border-emerald-500/40 hover:text-emerald-300 hover:shadow-[0_0_18px_rgba(16,185,129,0.3)]';
+      case 'github':
+        return 'hover:border-sky-500/40 hover:text-sky-300 hover:shadow-[0_0_18px_rgba(56,189,248,0.3)]';
+      default:
+        return 'hover:border-white/30 hover:text-white';
+    }
+  };
+
   return (
     <a
       href={link.url}
@@ -72,7 +87,7 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 38 }) => {
       rel="noopener noreferrer"
       aria-label={link.label}
       style={{ width: `${size}px`, height: `${size}px` }}
-      className="group relative flex items-center justify-center rounded-full bg-[#191817] text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2e2b27] active:translate-y-0 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#191817]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+      className={`group relative flex items-center justify-center rounded-xl bg-slate-900/80 text-slate-400 ring-1 ring-white/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-slate-800 active:translate-y-0 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${getPlatformHoverClasses()}`}
     >
       {renderGlyph()}
     </a>
