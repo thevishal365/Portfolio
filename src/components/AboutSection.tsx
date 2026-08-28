@@ -27,7 +27,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ profile }) => {
 
         {/* Right Column: Bio Narrative & Skills */}
         <div className="animate-rise [animation-delay:180ms] w-full flex-1 flex justify-center lg:justify-start">
-          <AboutBio heading={profile.heading} bio={profile.bio} tags={profile.tags} />
+          <AboutBio heading={profile.heading} bio={profile.bio} tags={profile.tags} skills={profile.skills} projects={profile.projects} contactEndpoint={profile.contactEndpoint} />
         </div>
       </div>
     </section>

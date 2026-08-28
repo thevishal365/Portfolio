@@ -1,11 +1,43 @@
 import React from 'react';
+import type { Project } from '../types/profile';
+import { ProjectList } from './ProjectList';
+import { ContactForm } from './ContactForm';
+import { TAG_PILL_CLASS, TagIcon } from './TagIcon';
+import { PROJECT_TITLE_CLASS } from './ProjectList';
 
 interface AboutBioProps {
   heading: string;
   bio: string[];
   tags?: string[];
+  skills?: string[];
+  projects?: Project[];
+  contactEndpoint?: string;
   className?: string;
 }
+
+const TagGroup: React.FC<{ heading: string; items: string[]; sectionId: string }> = ({
+  heading,
+  items,
+  sectionId
+}) => {
+  if (items.length === 0) return null;
+
+  return (
+    <div id={sectionId} className="mt-9 scroll-mt-24">
+      <h3 className={`${PROJECT_TITLE_CLASS} mb-3.5`}>
+        {heading}
+      </h3>
+      <ul className="flex flex-wrap gap-2.5">
+        {items.map((tag) => (
+          <li key={tag} className={TAG_PILL_CLASS}>
+            <TagIcon name={tag} />
+            <span>{tag}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 /** Exact phrases rendered in highlighted ink inside the narrative paragraphs.
     Matching is case-insensitive; all other text is left untouched. */
@@ -38,6 +70,9 @@ export const AboutBio: React.FC<AboutBioProps> = ({
   heading,
   bio,
   tags = [],
+  skills = [],
+  projects = [],
+  contactEndpoint = '',
   className = ''
 }) => {
   return (
@@ -68,24 +103,14 @@ export const AboutBio: React.FC<AboutBioProps> = ({
       </div>
 
       {/* Keyword tags / Interests */}
-      {tags.length > 0 && (
-        <div className="mt-9">
-          <p className="mb-3.5 font-mono text-[11.5px] uppercase tracking-wider text-slate-400 font-medium">
-            Focus &amp; Interests
-          </p>
-          <ul className="flex flex-wrap gap-2.5">
-            {tags.map((tag) => (
-              <li
-                key={tag}
-                className="group cursor-default inline-flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-1.5 text-[13px] font-medium tracking-wide text-slate-300 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/40 hover:bg-slate-800/80 hover:text-white hover:shadow-[0_0_16px_rgba(16,185,129,0.15)] hover:-translate-y-0.5"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-slate-500 transition-colors duration-300 group-hover:bg-emerald-400" />
-                <span>{tag}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <TagGroup heading="Focus & Interests" items={tags} sectionId="focus-interests" />
+
+      {/* Skills */}
+      <TagGroup heading="My Skills" items={skills} sectionId="my-skills" />
+
+      <ProjectList projects={projects} />
+
+      {contactEndpoint ? <ContactForm endpoint={contactEndpoint} /> : null}
     </div>
   );
-};
+};

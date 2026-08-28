@@ -6,7 +6,7 @@ import { defaultProfileData } from './data/profileData';
 
 export const App: React.FC = () => {
   return (
-    <div id="top" className="relative flex min-h-screen w-full flex-col bg-[#080c14] text-slate-300 antialiased selection:bg-emerald-500/20 selection:text-emerald-200">
+    <div id="home" className="relative flex min-h-screen w-full flex-col bg-[#080c14] text-slate-300 antialiased selection:bg-emerald-500/20 selection:text-emerald-200">
       {/* Ambient background grid & radial light layers */}
       <div 
         aria-hidden="true" 
