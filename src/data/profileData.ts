@@ -39,6 +39,13 @@ export const defaultProfileData: ProfileData = {
       description: 'An academic paper aggregation system.',
       liveUrl: 'https://paperlytic.netlify.app/',
       codeUrl: 'https://github.com/thevishal365/Paperlytic'
+    },
+    {
+      id: 3,
+      name: 'Scanora',
+      description: 'An AI-powered medical report understanding tool.',
+      liveUrl: 'https://scanora-ai.netlify.app/',
+      codeUrl: 'https://github.com/thevishal365/Scanora'
     }
   ],
   contactEndpoint: 'https://formspree.io/f/xjyvvglr',
