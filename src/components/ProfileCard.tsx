@@ -65,15 +65,15 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
       </div>
 
       <div className="min-w-0 flex-1">
-        <h1 className="text-[1.8rem] font-semibold leading-none tracking-[-0.06em] text-white sm:text-[2rem] sm:leading-none">
+        <h1 className="text-[1.5rem] font-semibold leading-none tracking-[-0.06em] text-white sm:text-[1.6rem]">
           {profile.name}
         </h1>
 
-        <div className="mt-1 text-[12px] text-slate-400 sm:text-[13px]">
+        <div className="mt-2.5 text-[12px] text-slate-400 sm:text-[13px]">
           <div>Tech Enthusiast</div>
         </div>
 
-        <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-slate-400 sm:text-[12px]">
+        <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[11px] text-slate-400 sm:text-[12px]">
           <LocationIcon />
           <span>India</span>
           <span aria-hidden="true" className="text-slate-500">·</span>
@@ -81,7 +81,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
           <span>{formatLocationTime()}</span>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-4">
           <SocialIconGroup links={profile.socialLinks} iconSize={34} gapClassName="justify-start gap-2.5" />
         </div>
       </div>

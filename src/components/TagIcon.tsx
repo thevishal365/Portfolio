@@ -7,8 +7,8 @@ export const TAG_PILL_CLASS =
 const TAG_ICON_CLASS =
   'h-3 w-3 shrink-0 transition-colors duration-200';
 
-const BrandMark: React.FC<{ path: string; fill?: string; className?: string }> = ({ path, fill = 'currentColor', className = '' }) => (
-  <svg className={`${TAG_ICON_CLASS} ${className}`} viewBox="0 0 24 24" fill={fill} aria-hidden="true">
+const BrandMark: React.FC<{ path: string; fill?: string; className?: string; viewBox?: string }> = ({ path, fill = 'currentColor', className = '', viewBox = '0 0 24 24' }) => (
+  <svg className={`${TAG_ICON_CLASS} ${className}`} viewBox={viewBox} fill={fill} aria-hidden="true">
     <path d={path} />
   </svg>
 );
@@ -60,17 +60,9 @@ export const TagIcon: React.FC<{ name: string }> = ({ name }) => {
     case 'GitHub':
       return <BrandMark path={GITHUB_PATH} className="text-slate-300" />;
     case 'Supabase':
-      return <BrandMark path={SUPABASE_PATH} className="text-slate-300" />;
+      return <BrandMark path={SUPABASE_PATH} className="text-slate-300" viewBox="0 0 21 24" />;
     case 'Netlify':
-      return <BrandMark path={NETLIFY_PATH} className="text-slate-300" />;
-    case 'Canva':
-      return <Palette {...LUCIDE_PROPS} className="text-slate-300" />;
-    case 'AutoCAD':
-      return <Wrench {...LUCIDE_PROPS} className="text-slate-300" />;
-    case 'MS Office':
-      return <FileSpreadsheet {...LUCIDE_PROPS} className="text-slate-300" />;
-    case 'LibreOffice':
-      return <FileText {...LUCIDE_PROPS} className="text-slate-300" />;
+      return <BrandMark path={NETLIFY_PATH} className="text-slate-300" viewBox="0 0 18 20" />;
     default:
       return null;
   }

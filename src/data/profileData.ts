@@ -21,11 +21,7 @@ export const defaultProfileData: ProfileData = {
     'Git',
     'GitHub',
     'Supabase',
-    'Netlify',
-    'Canva',
-    'AutoCAD',
-    'MS Office',
-    'LibreOffice'
+    'Netlify'
   ],
   projects: [
     {
