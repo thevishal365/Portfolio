@@ -16,10 +16,7 @@ export interface Project {
 
 export interface ProfileData {
   name: string;
-  handle: string;
-  tagline: string;
   avatarUrl: string;
-  heading: string;
   bio: string[];
   tags: string[];
   skills: string[];

@@ -7,12 +7,12 @@ interface ContactFormProps {
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const INPUT_CLASS =
-  'mt-1.5 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-[16px] text-slate-200 placeholder:text-slate-500 backdrop-blur-md transition-all duration-300 focus:outline-none focus-visible:border-emerald-500/40 focus-visible:ring-2 focus-visible:ring-emerald-400 disabled:cursor-not-allowed disabled:opacity-60';
+  'mt-1.5 w-full rounded-md border border-white/10 bg-[#000000] px-3.5 py-2.5 text-[15px] text-slate-200 placeholder:text-slate-500 transition-colors duration-200 focus:outline-none focus:border-slate-500';
 
-const LABEL_CLASS = 'block text-[13px] font-medium tracking-wide text-slate-300';
+const LABEL_CLASS = 'block text-[12px] font-medium uppercase tracking-[0.12em] text-slate-400';
 
 const SEND_BUTTON_CLASS =
-  'inline-flex min-h-11 cursor-pointer items-center justify-center rounded-xl border border-white/10 bg-slate-900/60 px-5 py-1.5 text-[13px] font-medium tracking-wide text-slate-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500/40 hover:bg-slate-800/80 hover:text-white hover:shadow-[0_0_16px_rgba(16,185,129,0.15)] active:translate-y-0 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0';
+  'inline-flex min-h-10 cursor-pointer items-center justify-center rounded-md border border-white/10 bg-transparent px-4 py-2 text-[12px] font-medium uppercase tracking-[0.12em] text-slate-200 transition-colors duration-200 hover:border-slate-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -112,14 +112,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ endpoint }) => {
   };
 
   return (
-    <section id="contact" className="mt-14 scroll-mt-24" aria-labelledby="contact-heading">
-      <h2
-        id="contact-heading"
-        className="text-[38px] md:text-[48px] lg:text-[58px] font-extrabold text-white tracking-tight mb-6 leading-[1.05]"
-      >
-        Contact
-      </h2>
-      <div aria-hidden="true" className="mb-7 h-[1px] w-20 bg-gradient-to-r from-emerald-400 via-sky-400 to-transparent" />
+    <section id="contact" className="mt-10 scroll-mt-24" aria-labelledby="contact-heading">
+      <div className="inline-block">
+        <h2 id="contact-heading" className="mb-2 text-[16px] font-semibold uppercase tracking-[0.18em] text-[#FFFFFF]">
+          Contact
+        </h2>
+        <div className="h-px w-full bg-gradient-to-r from-white via-white/50 to-transparent" />
+      </div>
+      <div className="mt-3" />
 
       <form onSubmit={handleSubmit} noValidate className="space-y-5" aria-describedby={statusMessage ? statusId : undefined}>
         <div>
@@ -141,7 +141,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ endpoint }) => {
             className={INPUT_CLASS}
           />
           {fieldErrors.name && (
-            <p id={`${nameId}-error`} className="mt-1.5 text-[13px] text-rose-400">
+            <p id={`${nameId}-error`} className="mt-1.5 text-[12px] text-rose-400">
               {fieldErrors.name}
             </p>
           )}
@@ -167,7 +167,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ endpoint }) => {
             className={INPUT_CLASS}
           />
           {fieldErrors.email && (
-            <p id={`${emailId}-error`} className="mt-1.5 text-[13px] text-rose-400">
+            <p id={`${emailId}-error`} className="mt-1.5 text-[12px] text-rose-400">
               {fieldErrors.email}
             </p>
           )}
@@ -188,10 +188,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ endpoint }) => {
             onChange={(event) => setMessage(event.target.value)}
             aria-invalid={Boolean(fieldErrors.message)}
             aria-describedby={fieldErrors.message ? `${messageId}-error` : undefined}
-            className={`${INPUT_CLASS} min-h-[132px] resize-y`}
+            className={`${INPUT_CLASS} min-h-[120px] resize-y`}
           />
           {fieldErrors.message && (
-            <p id={`${messageId}-error`} className="mt-1.5 text-[13px] text-rose-400">
+            <p id={`${messageId}-error`} className="mt-1.5 text-[12px] text-rose-400">
               {fieldErrors.message}
             </p>
           )}
@@ -205,7 +205,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ endpoint }) => {
           id={statusId}
           role="status"
           aria-live="polite"
-          className={`min-h-5 text-[14px] leading-relaxed ${
+          className={`min-h-5 text-[13px] leading-relaxed ${
             status === 'success' ? 'text-emerald-300' : status === 'error' ? 'text-rose-400' : 'text-transparent'
           }`}
         >

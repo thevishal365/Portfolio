@@ -6,14 +6,13 @@ interface ProjectListProps {
 }
 
 const PROJECT_LINK_CLASS =
-  'group/link inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-1.5 text-[13px] font-medium tracking-wide text-slate-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500/40 hover:bg-slate-800/80 hover:text-white hover:shadow-[0_0_16px_rgba(16,185,129,0.15)] active:translate-y-0 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400';
+  'group/link inline-flex min-h-9 items-center justify-center gap-2 rounded-md border border-white/10 bg-transparent px-3 py-1.5 text-[12px] font-medium tracking-[0.02em] text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500';
 
-export const PROJECT_TITLE_CLASS =
-  'text-[22px] sm:text-[24px] font-bold text-white tracking-tight leading-tight';
+export const PROJECT_TITLE_CLASS = 'text-[18px] font-normal tracking-[-0.03em] text-white sm:text-[20px]';
 
 const ExternalIcon: React.FC = () => (
   <svg
-    className="h-3.5 w-3.5 text-slate-500 transition-colors duration-300 group-hover/link:text-emerald-400"
+    className="h-3.5 w-3.5 text-slate-500 transition-colors duration-200 group-hover/link:text-white"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -30,7 +29,7 @@ const ExternalIcon: React.FC = () => (
 
 const CodeIcon: React.FC = () => (
   <svg
-    className="h-3.5 w-3.5 text-slate-500 transition-colors duration-300 group-hover/link:text-emerald-400"
+    className="h-3.5 w-3.5 text-slate-500 transition-colors duration-200 group-hover/link:text-white"
     viewBox="0 0 24 24"
     fill="currentColor"
     aria-hidden="true"
@@ -47,34 +46,32 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   if (projects.length === 0) return null;
 
   return (
-    <section id="projects" className="mt-14 scroll-mt-24" aria-labelledby="projects-heading">
-      <h2
-        id="projects-heading"
-        className="text-[38px] md:text-[48px] lg:text-[58px] font-extrabold text-white tracking-tight mb-6 leading-[1.05]"
-      >
-        Projects
-      </h2>
-      <div aria-hidden="true" className="mb-7 h-[1px] w-20 bg-gradient-to-r from-emerald-400 via-sky-400 to-transparent" />
+    <section id="projects" className="mt-10 scroll-mt-24" aria-labelledby="projects-heading">
+      <div className="inline-block">
+        <h2 id="projects-heading" className="mb-2 text-[16px] font-semibold uppercase tracking-[0.18em] text-[#FFFFFF]">
+          Projects
+        </h2>
+        <div className="h-px w-full bg-gradient-to-r from-white via-white/50 to-transparent" />
+      </div>
+      <div className="mt-3" />
 
-      <ol className="space-y-8">
+      <ol className="space-y-6">
         {projects.map((project) => (
           <li key={project.id}>
             <article className="flex items-start gap-3.5">
               <span
                 aria-hidden="true"
-                className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-slate-900/60 font-mono text-[13px] font-medium text-emerald-300/90 shadow-[0_0_10px_rgba(16,185,129,0.1)] backdrop-blur-md"
+                className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 bg-[#000000] text-[11px] font-medium text-slate-300"
               >
                 {project.id}
               </span>
 
               <div className="min-w-0 flex-1">
-                <h3 className={PROJECT_TITLE_CLASS}>
-                  {project.name}
-                </h3>
-                <p className="mt-2 text-[16px] md:text-[17px] text-slate-300 leading-[1.8] text-pretty">
+                <h3 className={PROJECT_TITLE_CLASS}>{project.name}</h3>
+                <p className="mt-2 text-[15px] leading-7 text-slate-300 sm:text-[16px]">
                   {project.description}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2.5">
+                <div className="mt-3 flex flex-wrap gap-2.5">
                   <a
                     href={project.liveUrl}
                     target="_blank"

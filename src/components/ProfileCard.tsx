@@ -8,48 +8,83 @@ interface ProfileCardProps {
   className?: string;
 }
 
+const LocationIcon: React.FC = () => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className="h-3.5 w-3.5 text-slate-500"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 21s6-5.686 6-11a6 6 0 1 0-12 0c0 5.314 6 11 6 11Z" />
+    <circle cx="12" cy="10" r="2.5" />
+  </svg>
+);
+
+const ClockIcon: React.FC = () => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className="h-3.5 w-3.5 text-slate-500"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="8" />
+    <path d="M12 7v5l3 2" />
+  </svg>
+);
+
+const formatLocationTime = () => {
+  const time = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  }).format(new Date());
+
+  return `${time}`;
+};
+
 export const ProfileCard: React.FC<ProfileCardProps> = ({
   profile,
   className = ''
 }) => {
   return (
-    <div
-      className={`relative w-full max-w-[380px] overflow-hidden rounded-3xl bg-slate-900/60 p-6 sm:p-8 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:ring-white/20 hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)] flex flex-col items-center text-center ${className}`}
-    >
-      {/* Top specular highlight line */}
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent" 
-      />
-
-      {/* Portrait Avatar Showcase */}
-      <div className="w-full mb-6 max-w-[280px]">
+    <div className={`flex w-full max-w-[760px] items-center gap-5 sm:gap-6 ${className}`}>
+      <div className="w-[120px] shrink-0 sm:w-[150px]">
         <ProfileAvatar
           src={profile.avatarUrl}
           alt={profile.name}
-          className="w-full aspect-square"
+          className="aspect-square w-full"
         />
       </div>
 
-      {/* Name */}
-      <h2 className="text-[24px] font-bold text-white tracking-tight leading-tight mb-2">
-        {profile.name}
-      </h2>
+      <div className="min-w-0 flex-1">
+        <h1 className="text-[1.8rem] font-semibold leading-none tracking-[-0.06em] text-white sm:text-[2rem] sm:leading-none">
+          {profile.name}
+        </h1>
 
-      {/* Social Handle Pill */}
-      <div className="mb-3.5 inline-flex items-center rounded-full border border-emerald-500/20 bg-emerald-950/30 px-3 py-0.5 text-[12.5px] font-mono tracking-tight text-emerald-300/90 shadow-[0_0_10px_rgba(16,185,129,0.1)]">
-        {profile.handle}
-      </div>
+        <div className="mt-1 text-[12px] text-slate-400 sm:text-[13px]">
+          <div>Tech Enthusiast</div>
+        </div>
 
-      {/* Tagline / Specialties */}
-      <p className="text-[14px] font-medium text-slate-300 leading-relaxed mb-6">
-        {profile.tagline}
-      </p>
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-slate-400 sm:text-[12px]">
+          <LocationIcon />
+          <span>India</span>
+          <span aria-hidden="true" className="text-slate-500">·</span>
+          <ClockIcon />
+          <span>{formatLocationTime()}</span>
+        </div>
 
-      {/* Social links row */}
-      <div className="mt-auto w-full border-t border-white/[0.08] pt-5">
-        <SocialIconGroup links={profile.socialLinks} iconSize={42} gapClassName="gap-3" />
+        <div className="mt-5">
+          <SocialIconGroup links={profile.socialLinks} iconSize={34} gapClassName="justify-start gap-2.5" />
+        </div>
       </div>
     </div>
   );
-};
+};

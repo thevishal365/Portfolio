@@ -9,25 +9,27 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ profile }) => {
   return (
-    <section
-      id="about"
-      className="relative w-full max-w-6xl scroll-mt-24 mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-28"
-    >
-      {/* Subtle ambient lighting behind hero */}
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 h-[450px] w-full max-w-4xl bg-gradient-to-tr from-emerald-500/10 via-sky-500/5 to-indigo-500/10 blur-3xl -z-10"
-      />
-
-      <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 sm:gap-16 lg:gap-20">
-        {/* Left Column: Glassmorphic Identity Card */}
-        <div className="animate-rise w-full flex justify-center lg:w-auto lg:sticky lg:top-24">
+    <section id="about" className="relative mx-auto w-full max-w-[760px] scroll-mt-24 px-4 py-12 sm:px-6 lg:px-0 lg:py-20">
+      <div className="mx-auto flex w-full max-w-[760px] flex-col items-start gap-10">
+        <div className="w-full">
           <ProfileCard profile={profile} />
         </div>
 
-        {/* Right Column: Bio Narrative & Skills */}
-        <div className="animate-rise [animation-delay:180ms] w-full flex-1 flex justify-center lg:justify-start">
-          <AboutBio heading={profile.heading} bio={profile.bio} tags={profile.tags} skills={profile.skills} projects={profile.projects} contactEndpoint={profile.contactEndpoint} />
+        <div className="w-full border-t border-white/[0.08] pt-6">
+          <div className="inline-block">
+            <h2 className="mb-2 text-[16px] font-semibold uppercase tracking-[0.18em] text-[#FFFFFF]">
+              About
+            </h2>
+            <div className="h-px w-full bg-gradient-to-r from-white via-white/50 to-transparent" />
+          </div>
+          <div className="mt-3" />
+          <AboutBio
+            bio={profile.bio}
+            tags={profile.tags}
+            skills={profile.skills}
+            projects={profile.projects}
+            contactEndpoint={profile.contactEndpoint}
+          />
         </div>
       </div>
     </section>

@@ -47,17 +47,12 @@ Live Visitor Statistics
 ```text
 Portfolio/
 ├── public/
-│   ├── favicon.svg
-│   ├── icons.svg
 │   └── profile.png
 │
 ├── src/
-│   ├── assets/
 │   ├── components/
 │   │   ├── AboutBio.tsx
 │   │   ├── AboutSection.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Header.tsx
 │   │   ├── ProfileAvatar.tsx
 │   │   ├── ProfileCard.tsx
 │   │   ├── SocialIcon.tsx

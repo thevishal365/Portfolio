@@ -1,14 +1,14 @@
 import React from 'react';
-import { Atom, Brain, CodeXml, HeartPulse, Orbit, Wrench } from 'lucide-react';
+import { Atom, Brain, CodeXml, FileSpreadsheet, FileText, HeartPulse, Orbit, Palette, Workflow, Wrench } from 'lucide-react';
 
 export const TAG_PILL_CLASS =
-  'group inline-flex min-h-11 cursor-default items-center justify-center gap-2 rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-1.5 text-[13px] font-medium tracking-wide text-slate-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-500/40 hover:bg-slate-800/80 hover:text-white hover:shadow-[0_0_16px_rgba(16,185,129,0.15)]';
+  'group inline-flex min-h-9 cursor-default items-center justify-center gap-2 rounded-md border border-white/10 bg-transparent px-3 py-1.5 text-[12px] font-medium tracking-[0.02em] text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500';
 
 const TAG_ICON_CLASS =
-  'h-3.5 w-3.5 shrink-0 text-slate-500 transition-colors duration-300 group-hover:text-emerald-400';
+  'h-3 w-3 shrink-0 transition-colors duration-200';
 
-const BrandMark: React.FC<{ path: string }> = ({ path }) => (
-  <svg className={TAG_ICON_CLASS} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+const BrandMark: React.FC<{ path: string; fill?: string; className?: string }> = ({ path, fill = 'currentColor', className = '' }) => (
+  <svg className={`${TAG_ICON_CLASS} ${className}`} viewBox="0 0 24 24" fill={fill} aria-hidden="true">
     <path d={path} />
   </svg>
 );
@@ -39,30 +39,38 @@ const LUCIDE_PROPS = {
 
 export const TagIcon: React.FC<{ name: string }> = ({ name }) => {
   switch (name) {
-    case 'Healthcare':
-      return <HeartPulse {...LUCIDE_PROPS} />;
-    case 'Digital Tools':
-      return <Wrench {...LUCIDE_PROPS} />;
-    case 'AI':
-      return <Brain {...LUCIDE_PROPS} />;
-    case 'Emerging Technologies':
-      return <Atom {...LUCIDE_PROPS} />;
+    case 'Health Tech':
+      return <HeartPulse {...LUCIDE_PROPS} className="text-slate-300" />;
+    case 'GenAI':
+      return <Brain {...LUCIDE_PROPS} className="text-slate-300" />;
     case 'Vibe Coding':
-      return <CodeXml {...LUCIDE_PROPS} />;
+      return <CodeXml {...LUCIDE_PROPS} className="text-slate-300" />;
+    case 'Automation':
+      return <Workflow {...LUCIDE_PROPS} className="text-slate-300" />;
+    case 'Emerging Technologies':
+      return <Atom {...LUCIDE_PROPS} className="text-slate-300" />;
     case 'VS Code':
-      return <BrandMark path={VS_CODE_PATH} />;
+      return <BrandMark path={VS_CODE_PATH} className="text-slate-300" />;
     case 'Cursor':
-      return <BrandMark path={CURSOR_PATH} />;
+      return <BrandMark path={CURSOR_PATH} className="text-slate-300" />;
     case 'Antigravity':
-      return <Orbit {...LUCIDE_PROPS} />;
+      return <Orbit {...LUCIDE_PROPS} className="text-slate-300" />;
     case 'Git':
-      return <BrandMark path={GIT_PATH} />;
+      return <BrandMark path={GIT_PATH} className="text-slate-300" />;
     case 'GitHub':
-      return <BrandMark path={GITHUB_PATH} />;
+      return <BrandMark path={GITHUB_PATH} className="text-slate-300" />;
     case 'Supabase':
-      return <BrandMark path={SUPABASE_PATH} />;
+      return <BrandMark path={SUPABASE_PATH} className="text-slate-300" />;
     case 'Netlify':
-      return <BrandMark path={NETLIFY_PATH} />;
+      return <BrandMark path={NETLIFY_PATH} className="text-slate-300" />;
+    case 'Canva':
+      return <Palette {...LUCIDE_PROPS} className="text-slate-300" />;
+    case 'AutoCAD':
+      return <Wrench {...LUCIDE_PROPS} className="text-slate-300" />;
+    case 'MS Office':
+      return <FileSpreadsheet {...LUCIDE_PROPS} className="text-slate-300" />;
+    case 'LibreOffice':
+      return <FileText {...LUCIDE_PROPS} className="text-slate-300" />;
     default:
       return null;
   }

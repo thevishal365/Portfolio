@@ -66,18 +66,7 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 42 }) => {
   };
 
   const getPlatformHoverClasses = () => {
-    switch (link.platform) {
-      case 'instagram':
-        return 'hover:border-pink-500/40 hover:text-pink-300 hover:shadow-[0_0_18px_rgba(236,72,153,0.3)]';
-      case 'x':
-        return 'hover:border-slate-400/50 hover:text-white hover:shadow-[0_0_18px_rgba(255,255,255,0.2)]';
-      case 'email':
-        return 'hover:border-emerald-500/40 hover:text-emerald-300 hover:shadow-[0_0_18px_rgba(16,185,129,0.3)]';
-      case 'github':
-        return 'hover:border-sky-500/40 hover:text-sky-300 hover:shadow-[0_0_18px_rgba(56,189,248,0.3)]';
-      default:
-        return 'hover:border-white/30 hover:text-white';
-    }
+    return 'hover:border-slate-500 hover:text-white';
   };
 
   return (
@@ -86,8 +75,8 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ link, size = 42 }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={link.label}
-      style={{ width: `${size}px`, height: `${size}px` }}
-      className={`group relative flex items-center justify-center rounded-xl bg-slate-900/80 text-slate-400 ring-1 ring-white/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-slate-800 active:translate-y-0 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${getPlatformHoverClasses()}`}
+      style={{ width: `${size}px`, height: `${size - 6}px` }}
+      className={`group relative flex items-center justify-center rounded-md border border-white/10 bg-[#000000] text-slate-400 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 ${getPlatformHoverClasses()}`}
     >
       {renderGlyph()}
     </a>
