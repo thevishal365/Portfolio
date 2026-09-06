@@ -1,5 +1,5 @@
 import React from 'react';
-import { Atom, Brain, CodeXml, FileSpreadsheet, FileText, HeartPulse, Orbit, Palette, Workflow, Wrench } from 'lucide-react';
+import { Atom, Brain, CodeXml, HeartPulse, Orbit, Workflow } from 'lucide-react';
 
 export const TAG_PILL_CLASS =
   'group inline-flex min-h-9 cursor-default items-center justify-center gap-2 rounded-md border border-white/10 bg-transparent px-3 py-1.5 text-[12px] font-medium tracking-[0.02em] text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500';
