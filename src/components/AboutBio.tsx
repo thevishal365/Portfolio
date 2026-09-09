@@ -56,8 +56,8 @@ export const AboutBio: React.FC<AboutBioProps> = ({
         ))}
       </ul>
 
-      <TagGroup heading="Interests" items={tags} sectionId="focus-interests" />
-      <TagGroup heading="My Skills" items={skills} sectionId="my-skills" />
+      <TagGroup heading="Current Focus" items={tags} sectionId="focus-interests" />
+      <TagGroup heading="Tools I use" items={skills} sectionId="my-skills" />
 
       <ProjectList projects={projects} />
 

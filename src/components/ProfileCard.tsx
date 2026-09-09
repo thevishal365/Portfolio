@@ -1,6 +1,5 @@
 import React from 'react';
 import type { ProfileData } from '../types/profile';
-import { ProfileAvatar } from './ProfileAvatar';
 import { SocialIconGroup } from './SocialIconGroup';
 
 interface ProfileCardProps {
@@ -47,7 +46,7 @@ const formatLocationTime = () => {
     hour12: true
   }).format(new Date());
 
-  return `${time}`;
+  return time;
 };
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({
@@ -55,34 +54,34 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`flex w-full max-w-[760px] items-center gap-5 sm:gap-6 ${className}`}>
-      <div className="w-[120px] shrink-0 sm:w-[150px]">
-        <ProfileAvatar
-          src={profile.avatarUrl}
-          alt={profile.name}
-          className="aspect-square w-full"
-        />
-      </div>
-
-      <div className="min-w-0 flex-1">
+    <div className={`w-full max-w-[760px] ${className}`}>
+      <div className="min-w-0">
         <h1 className="text-[1.5rem] font-semibold leading-none tracking-[-0.06em] text-white sm:text-[1.6rem]">
-          {profile.name}
+          Hello World, I'm {profile.name}
         </h1>
 
         <div className="mt-2.5 text-[12px] text-slate-400 sm:text-[13px]">
-          <div>Tech Enthusiast</div>
+          <div>Lab Technologist · Tech Enthusiast</div>
         </div>
 
         <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[11px] text-slate-400 sm:text-[12px]">
           <LocationIcon />
           <span>India</span>
-          <span aria-hidden="true" className="text-slate-500">·</span>
+
+          <span aria-hidden="true" className="text-slate-500">
+            ·
+          </span>
+
           <ClockIcon />
           <span>{formatLocationTime()}</span>
         </div>
 
         <div className="mt-4">
-          <SocialIconGroup links={profile.socialLinks} iconSize={34} gapClassName="justify-start gap-2.5" />
+          <SocialIconGroup
+            links={profile.socialLinks}
+            iconSize={34}
+            gapClassName="justify-start gap-2.5"
+          />
         </div>
       </div>
     </div>
