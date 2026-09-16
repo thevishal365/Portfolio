@@ -41,23 +41,48 @@ const ClockIcon: React.FC = () => (
 
 const formatLocationTime = () => {
   const time = new Intl.DateTimeFormat('en-US', {
-    hour: 'numeric',
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
     minute: '2-digit',
+    second: '2-digit',
     hour12: true
-  }).format(new Date());
+  })
+    .format(new Date())
+    .replace(/\u202f/g, ' ');
 
-  return time;
+  return `${time} IST`;
 };
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({
   profile,
   className = ''
 }) => {
+  const [currentTime, setCurrentTime] = React.useState(formatLocationTime);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(formatLocationTime());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className={`w-full max-w-[760px] ${className}`}>
       <div className="min-w-0">
+        {profile.avatarUrl ? (
+          <div className="mb-5 sm:mb-6">
+            <img
+              src={profile.avatarUrl}
+              alt={profile.name}
+              className="h-24 w-24 rounded-2xl border border-white/10 object-cover sm:h-28 sm:w-28"
+              loading="eager"
+            />
+          </div>
+        ) : null}
+
         <h1 className="text-[1.5rem] font-semibold leading-none tracking-[-0.06em] text-white sm:text-[1.6rem]">
-          Hello World, I'm {profile.name}
+          Hi, I'm {profile.name}
         </h1>
 
         <div className="mt-2.5 text-[12px] text-slate-400 sm:text-[13px]">
@@ -73,7 +98,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
           </span>
 
           <ClockIcon />
-          <span>{formatLocationTime()}</span>
+          <span>{currentTime}</span>
         </div>
 
         <div className="mt-4">

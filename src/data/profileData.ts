@@ -8,16 +8,15 @@ export const defaultProfileData: ProfileData = {
     'Although my professional background is in healthcare, I spend a lot of time exploring GenAI, digital tools, automation, and vibe coding. I enjoy taking an idea, experimenting with modern tools, and turning it into something useful.'
   ],
   tags: [
-    'Health Tech',
-    'GenAI',
-    'Vibe Coding',
-    'Automation',
-    'Emerging Technologies'
+    'Generative AI and AI powered tools',
+    'Health technology and healthcare applications',
+    'Automation and digital workflows',
+    'Vibe coding and rapid prototyping',
+    'Building practical software projects'
   ],
   skills: [
     'VS Code',
     'Cursor',
-    'Antigravity',
     'Git',
     'GitHub',
     'Supabase',
