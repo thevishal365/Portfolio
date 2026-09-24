@@ -10,6 +10,9 @@ const PROJECT_LINK_CLASS =
 
 export const PROJECT_TITLE_CLASS = 'text-[18px] font-normal tracking-[-0.03em] text-white sm:text-[20px]';
 
+const PROJECT_TECH_PILL_CLASS =
+  'inline-flex items-center rounded-md border border-white/10 px-2 py-1 text-[12px] font-medium leading-5 tracking-[0.01em] text-slate-300';
+
 const ExternalIcon: React.FC = () => (
   <svg
     className="h-3.5 w-3.5 text-slate-500 transition-colors duration-200 group-hover/link:text-white"
@@ -58,40 +61,62 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
       <ol className="space-y-6">
         {projects.map((project) => (
           <li key={project.id}>
-            <article className="flex items-start gap-3.5">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 bg-[#000000] text-[11px] font-medium text-slate-300"
-              >
-                {project.id}
-              </span>
+            <article className="rounded-lg border border-white/10 bg-white/[0.02] p-4 sm:p-5">
+              <div className="flex flex-col gap-4 md:flex-row md:gap-5">
+                {project.imageSrc ? (
+                  <div className="w-full shrink-0 self-start overflow-hidden rounded-md border border-white/10 bg-white md:w-60 lg:w-72">
+                    <img
+                      src={project.imageSrc}
+                      alt={project.imageAlt ?? `${project.name} homepage screenshot`}
+                      loading="lazy"
+                      className={`aspect-[16/10] h-full w-full object-cover ${project.imagePositionClass ?? 'object-top'}`}
+                    />
+                  </div>
+                ) : null}
 
-              <div className="min-w-0 flex-1">
-                <h3 className={PROJECT_TITLE_CLASS}>{project.name}</h3>
-                <p className="mt-2 text-[15px] leading-7 text-slate-300 sm:text-[16px]">
-                  {project.description}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2.5">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={PROJECT_LINK_CLASS}
-                    aria-label={`${project.name} live site`}
-                  >
-                    <ExternalIcon />
-                    <span>Live</span>
-                  </a>
-                  <a
-                    href={project.codeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={PROJECT_LINK_CLASS}
-                    aria-label={`${project.name} source code`}
-                  >
-                    <CodeIcon />
-                    <span>Code</span>
-                  </a>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+                    <h3 className={PROJECT_TITLE_CLASS}>{project.name}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={PROJECT_LINK_CLASS}
+                        aria-label={`${project.name} live site`}
+                      >
+                        <ExternalIcon />
+                        <span>Live</span>
+                      </a>
+                      <a
+                        href={project.codeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={PROJECT_LINK_CLASS}
+                        aria-label={`${project.name} source code on GitHub`}
+                      >
+                        <CodeIcon />
+                        <span>GitHub</span>
+                      </a>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-[15px] leading-7 text-slate-300 sm:text-[16px]">
+                    {project.description}
+                  </p>
+                  {project.techStack && project.techStack.length > 0 ? (
+                    <div className="mt-3">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                        Technologies Used:
+                      </p>
+                      <ul className="mt-2 flex flex-wrap gap-1.5">
+                        {project.techStack.map((tech) => (
+                          <li key={tech} className={PROJECT_TECH_PILL_CLASS}>
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </article>

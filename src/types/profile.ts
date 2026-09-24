@@ -12,6 +12,10 @@ export interface Project {
   description: string;
   liveUrl: string;
   codeUrl: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imagePositionClass?: string;
+  techStack?: string[];
 }
 
 export interface ProfileData {

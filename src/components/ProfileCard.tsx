@@ -75,7 +75,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
             <img
               src={profile.avatarUrl}
               alt={profile.name}
-              className="h-24 w-24 rounded-2xl border border-white/10 object-cover sm:h-28 sm:w-28"
+              className="h-30 w-30 rounded-2xl border border-white/10 object-cover sm:h-35 sm:w-35"
               loading="eager"
             />
           </div>
