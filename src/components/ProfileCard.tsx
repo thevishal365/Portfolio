@@ -86,7 +86,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         </h1>
 
         <div className="mt-2.5 text-[12px] text-slate-400 sm:text-[13px]">
-          <div>Lab Technologist · Tech Enthusiast</div>
+          <div>Tech Enthusiast</div>
         </div>
 
         <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[11px] text-slate-400 sm:text-[12px]">

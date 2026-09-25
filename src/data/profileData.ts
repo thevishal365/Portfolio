@@ -4,7 +4,7 @@ export const defaultProfileData: ProfileData = {
   name: 'Vishal Kumar',
   avatarUrl: '/profile.png',
   bio: [
-    'I’m a Lab Technologist with a background in Medical Laboratory Technology and a strong curiosity about technology.',
+    'I have a background in Medical Laboratory Technology and a strong curiosity about technology.',
     'Although my professional background is in healthcare, I spend a lot of time exploring GenAI, digital tools, automation, and vibe coding. I enjoy taking an idea, experimenting with modern tools, and turning it into something useful.'
   ],
   tags: [
