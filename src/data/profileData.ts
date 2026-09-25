@@ -9,7 +9,6 @@ export const defaultProfileData: ProfileData = {
   ],
   tags: [
     'Generative AI and AI powered tools',
-    'Health technology and healthcare applications',
     'Automation and digital workflows',
     'Vibe coding and rapid prototyping',
     'Building practical software projects'

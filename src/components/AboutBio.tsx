@@ -50,7 +50,12 @@ export const AboutBio: React.FC<AboutBioProps> = ({
       <ul className="list-none space-y-2 text-[15px] leading-7 text-slate-300 sm:text-[16px]">
         {bio.map((paragraph, index) => (
           <li key={index} className="flex items-start gap-3 pl-0">
-            <span aria-hidden="true" className="mt-[0.55em] leading-none text-slate-500">•</span>
+            <span
+              aria-hidden="true"
+              className="flex h-7 shrink-0 items-center justify-center leading-none text-slate-500 select-none"
+            >
+              •
+            </span>
             <span className="block">{paragraph}</span>
           </li>
         ))}
@@ -64,7 +69,12 @@ export const AboutBio: React.FC<AboutBioProps> = ({
           <ul className="list-none space-y-2 text-[15px] leading-7 text-slate-300 sm:text-[16px]">
             {tags.map((item, index) => (
               <li key={index} className="flex items-start gap-3 pl-0">
-                <span aria-hidden="true" className="mt-[0.55em] leading-none text-slate-500">•</span>
+                <span
+                  aria-hidden="true"
+                  className="flex h-7 shrink-0 items-center justify-center leading-none text-slate-500 select-none"
+                >
+                  •
+                </span>
                 <span className="block">{item}</span>
               </li>
             ))}
